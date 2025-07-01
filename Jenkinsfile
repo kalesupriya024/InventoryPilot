@@ -5,6 +5,13 @@ pipeline {
     }
 
     stages {
+        stage('Environment Check') {
+            steps {
+                bat 'dotnet --info'
+                bat 'dir'
+            }
+        }
+
         stage('Restore') {
             steps {
                 bat 'dotnet restore InventoryPilot.Domain.sln'
